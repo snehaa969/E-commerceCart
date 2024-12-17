@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 300px;
+            border: 2xp dashed #aaa;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+        }
+        .draggable{
+            width: 100px;
+            height: 100px;
+            background-color: #007BFF;
+            color: wheat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and drop demo</h1>
+    <div class="draggable" draggable="true" id="drag1">Drag Me</div>
+    <div class="draggable" draggable="true" id="drag2">Drag Me Too</div>
+
+    <div class="container" id="container1">Drop Here</div>
+    <div class="container" id="container2">Drop Here</div>
+
+    <script>
+        document.querySelectorAll('.draggable').forEach(item => {
+            item.addEventListener('dragstart', event =>{
+                event.dataTransfer.setData('text/plain', event.target.id);
+            });
+        });
+
+        document.querySelectorAll('.container').forEach(container => {
+            container.addEventListener('dragover', event => {
+                event.preventDefault();
+            });
+
+            container.addEventListener('drop', event =>{
+                event.preventDefault();
+                
+                const draggableElementId = event.dataTransfer.getData('text/plain');
+                const draggableElement = document.getElementById(draggableElementId);
+                container.appendChild(draggableElement);
+            });
+        });
+        // document.querySelectorAll('.draggable').forEach(item => {
+        //     item.addEventListener('dragstart', event => {
+        //         event.dataTransfer.setData('text/plain', event.target.id);
+        //     });
+        // });
+
+        // document.querySelectorAll('.container').forEach(container => {
+        //     container.addEventListener('dragover', event =>{
+        //         event.preventDefault();
+        //     });
+
+        //     container.addEventListener('drop', event => {
+        //         event.preventDefault();
+
+        //         const draggableElementId = event.dataTransfer.getData('text/plain');
+        //         const draggableElement = document.getElementById(draggableElementId);
+
+        //         container.appendChild(draggableElement);
+        //     });
+        // });
+    </script>
+</body>
+</html>

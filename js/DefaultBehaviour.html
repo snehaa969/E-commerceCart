@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <form id="myForm">
+        <input type="text" placeholder="Enter your name" id="name">
+        <button type="submit">Submit</button>
+    </form> -->
+    <!-- <script>
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            alert(`Form submitted with name: ${name}`);
+        });
+    </script> -->
+
+    <!-- <a href="https://example.com" id="myLink">Go to Example</a>
+    <script>
+        const link = document.getElementById("mylink");
+        link.addEventListener("click", (event)=>{
+            event.preventDefault();
+            alert("Navigation prevented!");
+        });
+    </script> -->
+
+    <!-- <form id="exampleForm">
+        <input type="text" id="inputBox" placeholder="Type something and press enter">
+    </form>
+
+    <script>
+        const inputBox = document.getElementById("inputBox");
+        inputBox.addEventListener("keydown", (event) =>{
+            if(event.key === "Enter"){
+                event.preventDefault();
+                alert("Enter key behaviour prevented");
+            }
+        });
+    </script> -->
+
+    <!-- <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+
+    <script>
+        const parent = document.getElementById('parent');
+        const child = document.getElementById('child');
+
+        parent.addEventListener('click', () =>{
+            console.log("Parent Clicked");
+        });
+        child.addEventListener('click', (event)=>{
+            event.stopPropagation();
+            console.log('Child Clicked');
+        })
+    </script> -->
+
+    <!-- <button id="button">Click Me</button>
+
+<script>
+  const button = document.getElementById("button");
+
+  button.addEventListener("click", () => {
+    console.log("First listener triggered");
+  });
+
+  button.addEventListener("click", (event) => {
+    event.stopImmediatePropagation(); // Stops other listeners on the same element
+    console.log("Second listener triggered");
+  });
+
+  button.addEventListener("click", () => {
+    console.log("Third listener triggered");
+  });
+</script> -->
+
+        <!-- <form id="form">
+        <input type="text" id="input" placeholder="Enter text">
+        <button type="submit">Submit</button>
+        </form>
+
+        <script>
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", (event) => {
+        console.log("Validation Listener 1 executed");
+        });
+
+        form.addEventListener("submit", (event) => {
+        console.log("Validation Listener 2 executed");
+        event.stopImmediatePropagation(); // Stops other submit listeners
+        event.preventDefault();
+        });
+
+        form.addEventListener("submit", () => {
+        console.log("Validation Listener 3 executed");
+        });
+        </script> -->
+
+        <!-- <h1>Event Delegation Example</h1>
+        <ul id="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <button id="addItem">Add Item</button>
+  
+        <script>
+            const list = document.getElementById("list");
+            const addItemButton = document.getElementById("addItem");
+            let itemCount =2;
+
+            list.addEventListener('click', (event) =>{
+                if(event.target.tagName === "Li"){
+                alert(`You Clicked: ${event.target.textContent}`);
+                }
+            });
+
+            addItemButton.addEventListener('click', ()=>{
+                itemCount++;
+                const newItem = document.createElement("li");
+                newItem.textContent = `Item ${itemCount}`;  
+                list.appendChild(newItem); 
+            });
+        </script> -->
+
+        <!-- <ul id="list">
+            <li>Item 1 <button class="remove"></button></li>
+            <li>Item 2 <button class="remove"></button></li>
+        </ul>
+        <button id="addItem">Add Item</button>
+
+        <script>
+            list.addEventListener("click", () =>{
+                if(event.target.classList.contains("remove")){
+                    const itemToRemove = event.target.parentElement;
+                    itemToRemove.remove();
+                }
+            });
+
+            addItemButton.addEventListener("click",()=>{
+                itemCout++;
+                const newItem = document.createElement("li");
+                newItem.innerHTML = `Item ${itemCout} <button class="remove">Remove</button>`;
+                list.appendChild(newItem);
+            })
+        </script> -->
+
+        <!-- <div id="parent">
+            <button id="child">Click Me</button>
+          </div>
+        
+          <script>
+            const parent = document.getElementById("parent");
+            const child = document.getElementById("child");
+        
+            // Listener in the Capturing Phase
+            parent.addEventListener("click", () => {
+              console.log("Parent (Capturing)");
+            }, { capture: true });
+        
+            // Listener in the Bubbling Phase
+            parent.addEventListener("click", () => {
+              console.log("Parent (Bubbling)");
+            });
+        
+            // Listener on the Target Element
+            child.addEventListener("click", () => {
+              console.log("Child");
+            });
+          </script> -->
+
+</body>
+</html>

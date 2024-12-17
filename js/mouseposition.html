@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #coordinates {
+          position: fixed;
+          top: 10px;
+          left: 10px;
+          padding: 5px;
+          background-color: rgba(0, 0, 0, 0.7);
+          color: white;
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+        }
+      </style>
+</head>
+<body>
+    <div id="coordinates">X: 0, Y: 0</div>
+    <script>
+        const coordinateDiv = document.getElementById("coordinates");
+        document.addEventListener("mouseover", (event) => {
+            coordinateDiv.textContent = `X: ${event.clientX}, Y:${event.clientY}`;
+        })
+    </script>
+</body>
+</html>
